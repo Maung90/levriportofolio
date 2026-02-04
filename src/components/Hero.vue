@@ -14,8 +14,8 @@
           <div class="h-[1.2em] overflow-hidden inline-block align-middle relative text-primary">
             <div class="animate-text-slide">
               <span class="block h-full">Levri</span>
-              <br>
               <span class="block h-full">Junior Web Developer</span>
+              <span class="block h-full">Levri</span>
             </div>
           </div>
         </h1>
@@ -54,14 +54,17 @@
 }
 
 @keyframes slideText {
-  0%, 40% {
+  0%, 20% {
     transform: translateY(0%);
   }
-  50%, 90% {
-    transform: translateY(-65%);
+  33%, 53% {
+    transform: translateY(-100%);
+  }
+  66%, 86% {
+    transform: translateY(-200%);
   }
   100% {
-    transform: translateY(100%);
+    transform: translateY(0%);
   }
 }
 </style>

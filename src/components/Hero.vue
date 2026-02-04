@@ -58,11 +58,11 @@
     transform: translateY(0%);
   }
   33%, 53% {
-    transform: translateY(-100%);
-  }
+    transform: translateY(-30%);
+  }/*
   66%, 86% {
-    transform: translateY(-200%);
-  }
+    transform: translateY(-100%);
+  }*/
   100% {
     transform: translateY(0%);
   }

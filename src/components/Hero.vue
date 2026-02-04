@@ -8,7 +8,7 @@
       <div class="order-2 lg:order-1" data-aos="fade-right">
         <small class="text-gray-500 dark:text-gray-400 text-lg block mb-2">Welcome to <span class="font-semibold text-gray-800 dark:text-gray-200">my portfolio website!</span></small>
 
-        <h1 class="text-4xl md:text-6xl font-bold mb-6 flex align-center md:flex-row md:items-center gap-2 md:gap-4">
+        <h1 class="text-3xl md:text-4xl font-bold mb-6 flex align-center md:flex-row md:items-center gap-2 md:gap-4">
           <span class="mr-2">Hi, I'm</span>
 
           <div class="h-[1.2em] overflow-hidden inline-block align-middle relative text-primary">

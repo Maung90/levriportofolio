@@ -1,83 +1,178 @@
 <script setup>
 const projects = [
-
+  {
+    title: 'Sistem Deteksi URL Phishing',
+    desc: 'Aplikasi keamanan siber berbasis machine learning yang menganalisis dan mengklasifikasi URL secara real-time untuk mendeteksi ancaman phishing, didukung REST API FastAPI dan antarmuka Vue yang responsif.',
+    img: '/images/project/deteksi-phishing.png',
+    tags: ['Vue', 'Tailwind', 'FastAPI', 'Python'],
+    link: 'https://github.com/Maung90/phishing-detector-vue',
+    num: '01',
+    isPrivate: false
+  },
+  {
+    title: 'Sistem Rapat',
+    desc: 'Aplikasi manajemen rapat lintas platform yang mendukung penjadwalan dan dokumentasi notulensi secara terpusat, dibangun dengan Flutter untuk mobile dan Laravel sebagai backend API.',
+    img: '/images/project/sistem-rapat.png',
+    tags: ['Flutter', 'Laravel', 'PHP'],
+    link: 'https://github.com/Maung90/ReservasiTour/',
+    num: '02',
+    isPrivate: true
+  },
   {
     title: 'Senang Tours & Travel',
-    desc: 'Sistem informasi pariwisata terintegrasi yang mencakup autentikasi multi-user aman dan manajemen paket wisata berbasis CodeIgniter 3 dan sekarang telah di upgrade menjadi laravel 11',
+    desc: 'Sistem reservasi wisata terintegrasi dengan manajemen paket tour, autentikasi multi-role, dan dashboard admin. Dibangun awal dengan CodeIgniter 3 lalu dimigrasi ke Laravel 11 untuk skalabilitas lebih baik.',
     img: '/images/project/login2.PNG',
     tags: ['PHP', 'CI3', 'Bootstrap', 'Laravel'],
     link: 'https://github.com/Maung90/ReservasiTour/',
-    color: 'bg-blue-500'
+    num: '03',
+    isPrivate: false
   },
   {
     title: 'Dashboard PinjamBarang',
-    desc: 'Aplikasi manajemen inventaris aset dengan dashboard monitoring real-time untuk mempermudah pelacakan sirkulasi barang masuk dan keluar.',
+    desc: 'Sistem manajemen inventaris aset instansi dengan dashboard monitoring real-time, pelacakan sirkulasi barang masuk dan keluar, serta laporan peminjaman berbasis peran pengguna.',
     img: '/images/project/dashboard.PNG',
     tags: ['CodeIgniter', 'MySQL'],
     link: 'https://github.com/Maung90/PinjamBarang/',
-    color: 'bg-red-500'
+    num: '04',
+    isPrivate: false
   },
   {
     title: 'MyChat App',
-    desc: 'Aplikasi pesan instan mobile (Real-time Chat) dengan performa tinggi dan antarmuka modern yang dikembangkan menggunakan ekosistem Flutter.',
+    desc: 'Aplikasi pesan instan mobile berbasis Flutter dengan fitur real-time messaging, manajemen kontak, dan antarmuka modern yang ringan dan responsif di berbagai ukuran layar.',
     img: '/images/project/flutter.png',
     tags: ['Flutter', 'Dart'],
     link: 'https://github.com/Maung90/mychat/',
-    color: 'bg-blue-400'
+    num: '05',
+    isPrivate: false
   },
   {
     title: 'Dengerin',
-    desc: 'Platform streaming musik responsif dengan fitur pemutar audio interaktif dan manajemen playlist, dibangun dengan struktur PHP Native yang efisien.',
+    desc: 'Platform streaming musik dengan pemutar audio interaktif, manajemen playlist, dan pencarian lagu. Dibangun menggunakan PHP Native dengan arsitektur MVC sederhana yang efisien.',
     img: '/images/project/dengerin.png',
     tags: ['PHP', 'Bootstrap'],
     link: 'https://github.com/Maung90/dengerin/',
-    color: 'bg-purple-500'
+    num: '06',
+    isPrivate: false
   }
 ];
 </script>
 
 <template>
-  <section id="project" class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="project" class="py-20 sm:py-28 px-5 sm:px-8 bg-gray-50 dark:bg-gray-950 transition-colors">
+    <div class="max-w-6xl mx-auto">
 
-      <div class="text-center mb-12" data-aos="fade-up">
-        <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Gallery Projects</h2>
-        <p class="text-gray-500 dark:text-gray-400">Berikut adalah project yang pernah saya kerjakan</p>
+      <!-- Section header -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 sm:mb-16 gap-4" data-aos="fade-up">
+        <div>
+          <span class="text-xs font-semibold tracking-[0.2em] uppercase text-gray-400 dark:text-gray-500">Portfolio</span>
+          <h2 class="text-4xl sm:text-5xl font-black tracking-tighter text-gray-900 dark:text-white mt-2">
+            Selected<br>Projects
+          </h2>
+        </div>
+        <p class="text-gray-400 dark:text-gray-500 text-sm max-w-xs sm:text-right">
+          Project yang pernah saya kerjakan selama belajar & magang.
+        </p>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-2 gap-8">
-        <div v-for="(project, index) in projects" :key="index"
-             class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group border border-gray-100 dark:border-gray-700"
-             data-aos="zoom-in" :data-aos-delay="index * 100">
+      <!-- Project list -->
+      <div class="flex flex-col gap-3 border border-gray-200 dark:border-gray-800">
+        <div
+          v-for="(project, index) in projects"
+          :key="index"
+          class="group relative bg-white dark:bg-black overflow-hidden"
+          data-aos="fade-up"
+          :data-aos-delay="index * 80"
+        >
+          <!-- Mobile: stacked card -->
+          <!-- Desktop: horizontal row (image left, info right) -->
+          <div class="flex flex-col lg:flex-row">
 
-          <div class="relative overflow-hidden h-56"> <img :src="project.img" :alt="project.title" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <!-- Image -->
+            <div class="relative lg:w-3/5 shrink-0 overflow-hidden bg-gray-100 dark:bg-gray-900">
+              <!-- aspect-ratio 2:1 for mobile, fixed height for desktop -->
+              <div class="aspect-[2/1] lg:aspect-auto lg:h-full min-h-[14rem]">
+                <img
+                  :src="project.img"
+                  :alt="project.title"
+                  class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                >
+              </div>
 
-            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
-              <a :href="project.link" target="_blank" class="text-white border border-white px-6 py-2 rounded-full hover:bg-white hover:text-black transition font-medium">
-                View Project
-              </a>
+              <!-- Hover overlay (desktop only) -->
+              <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:flex items-center justify-center">
+                <span v-if="project.isPrivate" class="inline-flex items-center gap-2 text-white/70 text-sm font-bold tracking-widest uppercase border border-white/30 px-5 py-2.5 cursor-default select-none">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                  </svg>
+                  Private Repo
+                </span>
+                <a v-else :href="project.link" target="_blank" class="flex items-center gap-2 text-white text-sm font-bold tracking-widest uppercase border border-white px-5 py-2.5 hover:bg-white hover:text-black transition-colors duration-200">
+                  View Project
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                  </svg>
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 flex justify-between items-center text-gray-900 dark:text-white">
-              {{ project.title }}
-              <a :href="project.link" target="_blank" class="text-gray-400 hover:text-primary transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                </svg>
-              </a>
-            </h3>
-            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 min-h-[50px] leading-relaxed">{{ project.desc }}</p>
-            <div class="flex flex-wrap gap-2">
-              <span v-for="tag in project.tags" :key="tag"
-                    class="px-3 py-1 text-xs font-semibold text-white rounded-full bg-primary shadow-sm">
-                {{ tag }}
-              </span>
+            <!-- Info panel -->
+            <div class="flex flex-col justify-between p-5 sm:p-6 lg:p-8 lg:w-2/5">
+              <div>
+                <!-- Number + title row -->
+                <div class="flex items-start justify-between gap-3 mb-3">
+                  <div>
+                    <span class="text-xs font-bold tracking-widest text-gray-300 dark:text-gray-700 block mb-1">{{ project.num }}</span>
+                    <h3 class="font-bold text-lg sm:text-xl text-gray-900 dark:text-white leading-tight">
+                      {{ project.title }}
+                    </h3>
+                  </div>
+                  <a v-if="!project.isPrivate" :href="project.link" target="_blank" class="shrink-0 text-gray-300 dark:text-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                    </svg>
+                  </a>
+                  <span v-else class="shrink-0 text-gray-300 dark:text-gray-700 mt-1" title="Private Repo">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                    </svg>
+                  </span>
+                </div>
+
+                <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-5">{{ project.desc }}</p>
+              </div>
+
+              <!-- Tags + mobile CTA -->
+              <div class="flex flex-col gap-4">
+                <div class="flex flex-wrap gap-1.5">
+                  <span
+                    v-for="tag in project.tags"
+                    :key="tag"
+                    class="px-2.5 py-0.5 text-xs font-semibold bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-800"
+                  >
+                    {{ tag }}
+                  </span>
+                </div>
+
+                <!-- CTA visible on mobile -->
+                <span v-if="project.isPrivate" class="lg:hidden inline-flex items-center gap-2 text-sm font-semibold text-gray-400 dark:text-gray-600 cursor-default select-none">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                  </svg>
+                  Private Repo
+                </span>
+                <a v-else :href="project.link" target="_blank" class="lg:hidden inline-flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white underline underline-offset-4 hover:opacity-60 transition-opacity">
+                  View Project
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                  </svg>
+                </a>
+              </div>
             </div>
+
           </div>
         </div>
       </div>
+
     </div>
   </section>
 </template>

@@ -6,24 +6,20 @@ import Projects from './components/Projects.vue';
 import Experience from './components/Experience.vue';
 import Skills from './components/Skills.vue';
 import Footer from './components/Footer.vue';
-// import CustomCursor from './components/CustomCursor.vue';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 onMounted(() => {
   AOS.init({
-    duration: 1000,
+    duration: 800,
     once: true,
+    easing: 'ease-out-cubic',
   });
-
 });
 </script>
 
 <template>
-  <div class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300 min-h-screen overflow-x-hidden selection:bg-primary selection:text-white">
-
-    <!-- <CustomCursor /> -->
-
+  <div class="bg-white dark:bg-black text-gray-900 dark:text-gray-100 transition-colors duration-300 min-h-screen overflow-x-hidden selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
     <Navbar />
     <main>
       <Hero />
